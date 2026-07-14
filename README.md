@@ -19,6 +19,10 @@ Greedy decoding in bf16 produces **token-identical output** to the reference
 4-bit shows visible quality degradation — small models quantize poorly, use
 with care.
 
+Reproduce it yourself with [`reference/run_transformers.py`](reference/run_transformers.py)
+(see its docstring — the reference implementation needs a pinned transformers
+version and a two-line patch to run at all).
+
 ## Benchmarks (M5 Pro, 24 GB, ut_steps=4, 150 new tokens)
 
 | Variant | Size | Prefill | Generation | vs HF Transformers (MPS) |
