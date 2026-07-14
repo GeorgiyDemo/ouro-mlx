@@ -55,6 +55,10 @@ def main():
     tok = AutoTokenizer.from_pretrained(args.model_dir)
     print(f"load: {time.monotonic() - t0:.1f}s | ut_steps={model.ut_steps}",
           file=sys.stderr)
+    if model.ut_steps > model.cfg.total_ut_steps:
+        print(f"⚠ model was trained with total_ut_steps={model.cfg.total_ut_steps}; "
+              f"running {model.ut_steps} loop steps is out-of-distribution and "
+              f"degrades output quality", file=sys.stderr)
 
     if args.raw:
         ids = tok(args.prompt, return_tensors="np")["input_ids"][0].tolist()
