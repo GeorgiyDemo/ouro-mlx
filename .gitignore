@@ -1,0 +1,7 @@
+.venv/
+models/
+*.egg-info/
+__pycache__/
+*.pyc
+.DS_Store
+ouro_mlx.egg-info/
